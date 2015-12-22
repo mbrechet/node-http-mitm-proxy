@@ -15,6 +15,8 @@ proxy.onRequest(function(ctx, callback) {
   //console.log('REQUEST: http://' + ctx.clientToProxyRequest.headers.host + ctx.clientToProxyRequest.url);
   //console.info(ctx.proxyToServerRequestOptions)
   ctx.proxyToServerRequestOptions.proxy = "http://proxy:8080";
+  ctx.proxyToServerRequestOptions.timeout = 120000;
+  ctx.proxyToServerRequestOptions.rejectUnauthorized = false;
   return callback();
 });
 
@@ -23,10 +25,12 @@ proxy.onRequest(function(ctx, callback) {
 //   return callback(null, chunk);
 // });
 
-// proxy.onResponse(function(ctx, callback) {
-//   //console.log('RESPONSE: http://' + ctx.clientToProxyRequest.headers.host + ctx.clientToProxyRequest.url);
-//   return callback(null);
-// });
+proxy.onResponseEnd(function(ctx, callback) {
+  if(ctx.clientToProxyRequest.headers.host && ctx.clientToProxyRequest.headers.host.indexOf('google') !== -1){
+    console.log('RESPONSE: ', ctx.proxyToClientResponse._header);
+  }
+  return callback();
+});
 
 // proxy.onResponseData(function(ctx, chunk, callback) {
 //   //console.log('response data length: ' + chunk.length);
