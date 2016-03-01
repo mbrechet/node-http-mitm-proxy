@@ -4,7 +4,7 @@
   "description": "HTTP Man In The Middle (MITM) Proxy",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": "https://github.com/joeferner/node-http-mitm-proxy",
   "bugs": {
