@@ -62,6 +62,10 @@ class Proxy {
         }else{
             this.proxyConfig = new ProxyConfig();
         }
+        
+        this.onBeforeRequestHandlers = [];
+        this.onBeforeResponseHandlers = [];
+        this.onErrorHandlers = [];
     }
     
     listen():void{

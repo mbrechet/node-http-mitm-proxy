@@ -14,6 +14,9 @@ class Proxy {
         else {
             this.proxyConfig = new ProxyConfig_1.default();
         }
+        this.onBeforeRequestHandlers = [];
+        this.onBeforeResponseHandlers = [];
+        this.onErrorHandlers = [];
     }
     /**
      * Private functions
