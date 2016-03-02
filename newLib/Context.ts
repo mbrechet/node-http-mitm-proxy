@@ -2,6 +2,8 @@ import * as http from "http";
 import * as request from "request";
 
 export default class Context {
+    
+    // public properties
     public requester:any=null;
     public serverResponse:http.ServerResponse = null;
     public serverRequest:Object = null;
@@ -11,8 +13,9 @@ export default class Context {
     public onErrorHandlers:Array<any> = null;
     public serverRequestOptions:Object = null;
     public cancelServerRequest:boolean = false;
-    private bodyRequest:any;
     
+    // private properties
+    private bodyRequest:any;
     private _clientRequest:http.ClientRequest = null;
   
     constructor(){

@@ -2,6 +2,7 @@
 const request = require("request");
 class Context {
     constructor() {
+        // public properties
         this.requester = null;
         this.serverResponse = null;
         this.serverRequest = null;
