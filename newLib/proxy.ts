@@ -46,7 +46,7 @@ class Proxy {
     };
     
     private _onHttpRequest(request:http.ClientRequest, response:http.ServerResponse):void{
-        const context:Context = new Context();
+        let context:Context = new Context();
         context.onErrorHandlers = this.onErrorHandlers;
         context.onRequestHandlers = this.onBeforeRequestHandlers;
         context.onResponseHandlers = this.onBeforeResponseHandlers;

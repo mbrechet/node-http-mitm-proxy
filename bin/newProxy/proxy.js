@@ -47,7 +47,7 @@ class Proxy {
     }
     ;
     _onHttpRequest(request, response) {
-        const context = new Context_1.default();
+        let context = new Context_1.default();
         context.onErrorHandlers = this.onErrorHandlers;
         context.onRequestHandlers = this.onBeforeRequestHandlers;
         context.onResponseHandlers = this.onBeforeResponseHandlers;
